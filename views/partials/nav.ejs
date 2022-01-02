@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-light mb-3">
+  <div class="container"> <!--container: navbar 내용을 화면 가운데로 지정-->
+    <div class="navbar-brand">CRUD BOARD</div>
+
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+<!--작은 화면에서 메뉴를 숨기고 보여주는 버튼의 class. data-target에 적용될 id 설정.-->
+
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!--collapse: 위 navbar-toggler class의 대상이 될 수 있는 class. id를 맞춰준다-->
+
+
+      <ul class="navbar-nav"> <!--navbar-nav: 실제 메뉴들을 가지는 class.-->
+        <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+        <li class="nav-item"><a href="/posts" class="nav-link">Board</a></li>
+      </ul>
+      <ul class="navbar-nav ml-auto"> <!--ml-auto class = 우측정렬-->
+        <% if(isAuthenticated){ %> <!--login이 된 경우(if(isAuthenticated))에는 My Account 메뉴와 Logout 메뉴을 보여주고, login을 하지 않은 경우(else)에는 Sign Up 메뉴와 Login 메뉴를 보여준다.-->
+          <li class="nav-item"><a href="/users/<%= currentUser.username %>" class="nav-link">My Account</a></li>
+          <li class="nav-item"><a href="/logout" class="nav-link">Logout</a></li>
+        <% } else { %>
+          <li class="nav-item"><a href="/users/new" class="nav-link">Sign Up</a></li>
+          <li class="nav-item"><a href="/login" class="nav-link">Login</a></li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+</nav>
