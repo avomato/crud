@@ -1,5 +1,5 @@
 var mongoose = require('mongoose');
-var bcrypt = require('bcryptjs'); //노드모듈 변수설정
+var bcrypt = require('bcryptjs'); //노드 암호화 모듈 변수설정
 
 
 
@@ -21,12 +21,14 @@ var userSchema = mongoose.Schema({
     type:String,
     required:[true,'이름을 입력해 주세요.'],
     match:[/^.{2,12}$/,'2~12 글자로 설정해 주세요.'],
-    trim:true
+    trim:true,
+    unique:true
   },
   email:{
     type:String,
     match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,'유효한 이메일 주소여야 합니다.'],
-    trim:true
+    trim:true,
+    unique:true
   }
 },{
   toObject:{virtuals:true}
@@ -89,7 +91,7 @@ userSchema.path('password').validate(function(v) {
 
 
   // update user
-  //회원 정보 수정의 경우 current password값이 없는 경우와, current password값이 original password값과 다른 경우, new password값과 password confirmation값이 다른 경우 invalidate합시다. 회원정보 수정시에는 항상 비밀번호를 수정하는 것은 아니기 때문에 new password와 password confirmation값이 없어도 에러는 아니다.
+  //회원 정보 수정의 경우 current password값이 없는 경우와, current password값이 original password값과 다른 경우, new password값과 password confirmation값이 다른 경우 invalidate합니다. 회원정보 수정시에는 항상 비밀번호를 수정하는 것은 아니기 때문에 new password와 password confirmation값이 없어도 에러는 아니다.
   if(!user.isNew){
     if(!user.currentPassword){
       user.invalidate('currentPassword', 'Current Password is required!');

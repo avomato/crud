@@ -7,10 +7,9 @@ router.get('/', function(req, res){
   //      "/"에 get 요청이 오는 경우를 router함수에 설정해 준다.
   res.render('home/welcome');
 });
-router.get('/about', function(req, res){
-  res.render('home/about');
+
   //ejs파일을 사용하기 위해서는 res.render 함수를 사용해야 하며, 첫번째 parameter로 ejs의 이름을, 두번째 parameter로 ejs에서 사용될 object를 전달한다.
-});
+
 
 // Login
 router.get('/login', function (req,res) {

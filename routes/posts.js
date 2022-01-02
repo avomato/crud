@@ -99,7 +99,7 @@ router.delete('/:id', util.isLoggedin, checkPermission, function(req, res){
   Post.deleteOne({_id:req.params.id}, function(err){
     if(err) return res.json(err);
     res.redirect('/posts');
-    //Model.deleteOne은 DB에서 해당 model의 document를 하나 찾아 삭제하는 함수입니다. 첫번째 parameter로 찾을 조건을 object로 입력하고 data를 찾은 후 callback함수를 호출한다. Data 삭제후 "/posts"로 redirect합니다.
+    //Model.deleteOne은 DB에서 해당 model의 document를 하나 찾아 삭제하는 함수, 첫번째 parameter로 찾을 조건을 object로 입력하고 data를 찾은 후 callback함수를 호출한다. Data 삭제후 "/posts"로 redirect합니다.
   });
 });
 
