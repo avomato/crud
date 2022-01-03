@@ -4,4 +4,4 @@
 
 CRUD 구현 게시판 입니다. 
 
-https://crudboard.herokuapp.com/
+https://crudboard.herokuapp.com
