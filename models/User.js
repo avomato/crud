@@ -21,14 +21,12 @@ var userSchema = mongoose.Schema({
     type:String,
     required:[true,'이름을 입력해 주세요.'],
     match:[/^.{2,12}$/,'2~12 글자로 설정해 주세요.'],
-    trim:true,
-    unique:true
+    trim:true
   },
   email:{
     type:String,
     match:[/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,'유효한 이메일 주소여야 합니다.'],
-    trim:true,
-    unique:true
+    trim:true
   }
 },{
   toObject:{virtuals:true}
