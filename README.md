@@ -16,4 +16,4 @@
 # 유저 DB
 ![유저DB저장](https://user-images.githubusercontent.com/95350364/148874150-84b9012d-e980-49e3-ad92-7ddf3b5fbf77.JPG)
 
-https://crudboard.herokuapp.com
+https://jjunboard.herokuapp.com
